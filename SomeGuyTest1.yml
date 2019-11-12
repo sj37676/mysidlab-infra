@@ -1,0 +1,24 @@
+---
+- name: Creat a sandbox instance
+  hosts: all
+  gather_facts: false
+  become: true
+  vars:
+    hostname: taranto-cateyes
+    tz: Antarctica/McMurdo
+    token: T04NJ722U/BQB4MBBHV/RZPNWsz38MD1QtuVcenaSreb
+    target: www.google.com
+    
+  tasks:
+    - name: Set timezone to "{{ tz }}"
+      timezone:
+        name: "{{ tz }}"
+    - name: Display new timezone
+      shell: date +%Z
+    
+    - name: Dump host facts
+      setup:
+    
+    - name: Ping out to "{{ target }}"
+      shell: ping -m 5 {{ target }}
+      
