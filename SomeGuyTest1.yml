@@ -20,5 +20,5 @@
       setup:
     
     - name: Ping out to "{{ target }}"
-      shell: ping -m 5 {{ target }}
+      shell: ping -c 5 {{ target }}
       
